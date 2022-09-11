@@ -1,18 +1,23 @@
 import './App.css';
 import {Container, GlobalStyle, Header, NumberInput,ButtonContainer,Button,BigButton} from "./styles/styles";
+import {ThemeProvider} from "styled-components";
+import {useState} from "react";
+import {themes} from "./styles/colors";
 
 function App() {
 
+    const [themeOption,setThemeOption] = useState(1);
 
     const ThemeToggler = () => {
         return <div>
-            Theme Toggler
+            <button onClick={() =>setThemeOption(1)}>1</button>
+            <button onClick={() =>setThemeOption(2)}>2</button>
+            <button onClick={() =>setThemeOption(3)}>3</button>
         </div>
     }
 
     const CalculatorInput = () => {
 
-        const symbol = '%'
         return <NumberInput>
             123,456
         </NumberInput>
@@ -25,7 +30,7 @@ function App() {
             <Button>7</Button>
             <Button>8</Button>
             <Button>9</Button>
-            <Button function>DEL</Button>
+            <Button operation>DEL</Button>
 
             <Button>4</Button>
             <Button>5</Button>
@@ -42,23 +47,23 @@ function App() {
             <Button>/</Button>
             <Button>X</Button>
 
-            <BigButton function>RESET</BigButton>
-            <BigButton enter>=</BigButton>
+            <BigButton operation>RESET</BigButton>
+            <BigButton eq>=</BigButton>
         </ButtonContainer>
     }
 
   return (
-      <>
+      <ThemeProvider theme={themes[themeOption]}>
           <GlobalStyle/>
           <Container>
               <Header>
-                  Calc
+                  Calculator
                   <ThemeToggler/>
               </Header>
               <CalculatorInput/>
               <CalculatorKeys/>
           </Container>
-      </>
+      </ThemeProvider>
   );
 }
 

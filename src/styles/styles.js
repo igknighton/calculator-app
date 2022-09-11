@@ -1,12 +1,10 @@
 import styled from 'styled-components'
 import {createGlobalStyle} from "styled-components";
-import {colors} from "./colors";
 
 const GlobalStyle = createGlobalStyle`
   body {
-    background-color: ${colors["veryDarkSaturatedBlue-background"]};
+    background-color: ${props => props.theme.backgroundMain};
     font-size: 32px;
-    color: ${colors["white-text"]};
   }
 `
 
@@ -22,20 +20,22 @@ const Container = styled.div`
 const Header = styled.div`
   display: flex;
   justify-content: space-between;
+  color: ${props => props.theme.titleColor};
 `
 
 const NumberInput = styled.div`
   margin-top: 10px;
-  background: ${colors["veryDarkSaturatedBlue-screen-background"]};
+  background: ${props => props.theme.screenBackground};
   display: flex;
   justify-content: space-between;
   padding: 20px;
   border-radius: ${borderRadius};
+  color: ${props => props.theme.titleColor};
 `
 
 const ButtonContainer = styled.div`
   margin-top: 10px;
-  background: ${colors["veryDarkSaturatedBlue-toogle-keypad-background"]};
+  background: ${props => props.theme.keypadBackground};
   display: grid;
   grid-template-columns: repeat(4,1fr);
   grid-gap: 1rem;
@@ -44,18 +44,33 @@ const ButtonContainer = styled.div`
 `
 
 const Button = styled.div`
-  background: ${props => props.function ? colors["veryDarkSaturatedBlue-key-background"] :
-          props.enter ? colors['red'] :
-                  colors["lightGrayishOrange-key-background"]};
-  color: ${props => (props.function || props.enter) ? colors["white-text"] : colors["darkGrayishBlue-text"]};
+  background: ${props => props.operation ? props.theme.keys.operation.background :
+          props.eq ? props.theme.keys.eq.background : 
+          props.theme.keys.primary.background
+};
+  color: ${props => props.operation ? props.theme.keys.operation.textColor :
+        props.eq ? props.theme.keys.eq.textColor :
+        props.theme.keys.primary.textColor
+  };
   text-align: center;
   border-radius: ${borderRadius};
   padding: 10px 10px;
+  
+  //&:hover {
+  //  background:orange;
+  //}
+  
 `
 
 const BigButton = styled(Button)`
     grid-column: span 2;
 `
 
+const ButtonShadow = styled.div`
+  background: ${props => props.operation ? props.theme.keys.operation.shadow :
+        props.eq ? props.theme.keys.eq.shadow :
+            props.theme.keys.primary.shadow
+};
+`
 
 export {Container,GlobalStyle,Header,NumberInput,ButtonContainer,Button,BigButton}

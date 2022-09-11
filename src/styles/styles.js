@@ -56,9 +56,11 @@ const Button = styled.div`
   border-radius: ${borderRadius};
   padding: 10px 10px;
   
-  //&:hover {
-  //  background:orange;
-  //}
+  &:hover {
+    background:${props=> props.operation ? props.theme.keys.operation.highlight :
+                props.eq ? props.theme.keys.eq.highlight :
+                props.theme.keys.primary.highlight};
+  }
   
 `
 

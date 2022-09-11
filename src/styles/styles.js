@@ -60,6 +60,7 @@ const Button = styled.div`
     background:${props=> props.operation ? props.theme.keys.operation.highlight :
                 props.eq ? props.theme.keys.eq.highlight :
                 props.theme.keys.primary.highlight};
+    cursor: pointer;
   }
   
 `

@@ -78,7 +78,7 @@ export const themes = {
                 },
                 primary: {
                     background:'hsl(268, 47%, 21%)',
-                    shadow:'hsl(268, 47%, 21%)',
+                    shadow:'hsl(290, 70%, 36%)',
                     textColor: 'hsl(52, 100%, 62%)'
                 }
             }

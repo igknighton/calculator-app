@@ -71,6 +71,9 @@ const ButtonShadow = styled.div`
         props.eq ? props.theme.keys.eq.shadow :
             props.theme.keys.primary.shadow
 };
+  padding-bottom: 5px;
+  border-radius: ${borderRadius};
+  grid-column: ${props => props.size === 'lg' ? 'span 2': 'span 1'};
 `
 
-export {Container,GlobalStyle,Header,NumberInput,ButtonContainer,Button,BigButton}
+export {Container,GlobalStyle,Header,NumberInput,ButtonContainer,Button,BigButton,ButtonShadow}

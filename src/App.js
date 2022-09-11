@@ -1,5 +1,5 @@
 import './App.css';
-import {Container, GlobalStyle, Header, NumberInput,ButtonContainer,Button,BigButton} from "./styles/styles";
+import {Container, GlobalStyle, Header, NumberInput,ButtonContainer,Button,BigButton,ButtonShadow} from "./styles/styles";
 import {ThemeProvider} from "styled-components";
 import {useState} from "react";
 import {themes} from "./styles/colors";
@@ -23,32 +23,48 @@ function App() {
         </NumberInput>
     }
 
+
+    const FullButton = ({children,size='',...props}) => {
+
+        return <ButtonShadow size={size} {...props}>
+            {
+                size === 'lg' ?
+                    <BigButton {...props}>
+                        {children}
+                    </BigButton> :
+                    <Button {...props}>
+                        {children}
+                    </Button>
+            }
+        </ButtonShadow>
+    }
+
     const CalculatorKeys = () => {
 
         return <ButtonContainer>
 
-            <Button>7</Button>
-            <Button>8</Button>
-            <Button>9</Button>
-            <Button operation>DEL</Button>
+            <FullButton>7</FullButton>
+            <FullButton>8</FullButton>
+            <FullButton>9</FullButton>
+            <FullButton operation>DEL</FullButton>
 
-            <Button>4</Button>
-            <Button>5</Button>
-            <Button>6</Button>
-            <Button>+</Button>
+            <FullButton>4</FullButton>
+            <FullButton>5</FullButton>
+            <FullButton>6</FullButton>
+            <FullButton>+</FullButton>
 
-            <Button>1</Button>
-            <Button>2</Button>
-            <Button>3</Button>
-            <Button>-</Button>
+            <FullButton>1</FullButton>
+            <FullButton>2</FullButton>
+            <FullButton>3</FullButton>
+            <FullButton>-</FullButton>
 
-            <Button>.</Button>
-            <Button>0</Button>
-            <Button>/</Button>
-            <Button>X</Button>
+            <FullButton>.</FullButton>
+            <FullButton>0</FullButton>
+            <FullButton>/</FullButton>
+            <FullButton>X</FullButton>
 
-            <BigButton operation>RESET</BigButton>
-            <BigButton eq>=</BigButton>
+            <FullButton size={'lg'} operation>RESET</FullButton>
+            <FullButton size={'lg'} eq>=</FullButton>
         </ButtonContainer>
     }
 

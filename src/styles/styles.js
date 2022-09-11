@@ -19,6 +19,7 @@ const Container = styled.div`
 
 const Header = styled.div`
   display: flex;
+  align-content: center;
   justify-content: space-between;
   color: ${props => props.theme.titleColor};
 `
@@ -62,7 +63,6 @@ const Button = styled.div`
                 props.theme.keys.primary.highlight};
     cursor: pointer;
   }
-  
 `
 
 const BigButton = styled(Button)`
@@ -79,4 +79,41 @@ const ButtonShadow = styled.div`
   grid-column: ${props => props.size === 'lg' ? 'span 2': 'span 1'};
 `
 
-export {Container,GlobalStyle,Header,NumberInput,ButtonContainer,Button,BigButton,ButtonShadow}
+
+const TogglerContainer = styled.div`
+  display: flex;
+  font-size: 16px;
+  align-content: center;
+  justify-content: center;
+`
+const TogglerLabel = styled.div`
+  display: flex;
+  align-content: center;
+  padding-top: 10px;
+  margin-right: 10px;
+`
+const ToggleContainer = styled.div`
+  width: 65px;
+  height: 20px;
+  background: ${props => props.theme.toggleBackground};
+  border-radius: 30px;
+  padding: 5px;
+  display: flex;
+  justify-content: ${props => props.option === 1 ? 'flex-start' :
+      props.option === 2 ? 'center':
+      'flex-end'};
+  cursor: pointer;
+`
+
+const ToggleSwitch = styled.div`
+  width: 20px;
+  height: 20px;
+  border-radius: 50%;
+  background: ${props => props.theme.toggle};
+  
+`
+
+export {Container,GlobalStyle,Header,NumberInput,
+  ButtonContainer,Button,BigButton,ButtonShadow,
+    ToggleSwitch,ToggleContainer,TogglerContainer,TogglerLabel
+}

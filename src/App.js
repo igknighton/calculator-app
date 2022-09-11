@@ -1,5 +1,18 @@
 import './App.css';
-import {Container, GlobalStyle, Header, NumberInput,ButtonContainer,Button,BigButton,ButtonShadow} from "./styles/styles";
+import {
+    Container,
+    GlobalStyle,
+    Header,
+    NumberInput,
+    ButtonContainer,
+    Button,
+    BigButton,
+    ButtonShadow,
+    ToggleContainer,
+    ToggleSwitch,
+    TogglerContainer,
+    TogglerLabel
+} from "./styles/styles";
 import {ThemeProvider} from "styled-components";
 import {useState} from "react";
 import {themes} from "./styles/colors";
@@ -8,12 +21,19 @@ function App() {
 
     const [themeOption,setThemeOption] = useState(1);
 
+
+    const handleToggle = () => {
+        if (themeOption === 3) setThemeOption(1)
+        else setThemeOption(themeOption+1)
+    }
+
     const ThemeToggler = () => {
-        return <div>
-            <button onClick={() =>setThemeOption(1)}>1</button>
-            <button onClick={() =>setThemeOption(2)}>2</button>
-            <button onClick={() =>setThemeOption(3)}>3</button>
-        </div>
+        return <TogglerContainer>
+            <TogglerLabel>Theme</TogglerLabel>
+            <ToggleContainer onClick={handleToggle}  option={themeOption}>
+                <ToggleSwitch/>
+            </ToggleContainer>
+        </TogglerContainer>
     }
 
     const CalculatorInput = () => {

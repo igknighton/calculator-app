@@ -30,6 +30,7 @@ const NumberInput = styled.div`
   display: flex;
   justify-content: space-between;
   padding: 20px;
+  height: 30px;
   border-radius: ${borderRadius};
   color: ${props => props.theme.titleColor};
 `

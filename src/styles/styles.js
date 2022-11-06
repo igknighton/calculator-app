@@ -5,14 +5,19 @@ const GlobalStyle = createGlobalStyle`
   body {
     background-color: ${props => props.theme.backgroundMain};
     font-size: 32px;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
   }
 `
 
 const borderRadius = '10px';
 
 const Container = styled.div`
-  max-width: 500px;
-  margin: 70px auto;
+  min-width: 500px;
   display: flex;
   flex-direction: column;
 `
